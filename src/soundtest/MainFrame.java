@@ -355,8 +355,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     private void keys_en() {
-        ok_btn.setEnabled(false);
-        clear_btn.setEnabled(false);
+        ok_btn.setEnabled(true);
+        clear_btn.setEnabled(true);
         four_btn.setEnabled(true);
         one_btn.setEnabled(true);
         seven_btn.setEnabled(true);
