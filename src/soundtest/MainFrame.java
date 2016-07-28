@@ -20,6 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainFrame
+     * @param test
      */
     public MainFrame(SoundTest test) {
         this.test = test;
@@ -52,15 +53,15 @@ public class MainFrame extends javax.swing.JFrame {
         nine_btn = new javax.swing.JButton();
         zero_btn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        numCount_lbl = new javax.swing.JLabel();
+        ans_lbl = new javax.swing.JLabel();
         answer_lbl = new javax.swing.JLabel();
         clear_btn = new javax.swing.JButton();
         order_lbl = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        correctNum_lbl = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        Incorr_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Тест на запоминание цифр");
@@ -149,12 +150,16 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Количество цифр:");
 
-        jLabel3.setText("0");
+        numCount_lbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        numCount_lbl.setText("0");
 
-        jLabel1.setText("Ответ:");
+        ans_lbl.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        ans_lbl.setText("Ответ:");
 
+        answer_lbl.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         answer_lbl.setText(" ");
 
         clear_btn.setText("Очистить");
@@ -164,15 +169,20 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        order_lbl.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         order_lbl.setText("В прямом порядке");
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Прав.");
 
-        jLabel7.setText("0");
+        correctNum_lbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        correctNum_lbl.setText("0");
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Неправ.");
 
-        jLabel9.setText("0");
+        Incorr_lbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Incorr_lbl.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,78 +191,83 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(start_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(start_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(one_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(two_bnt, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(three_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(clear_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(one_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(two_bnt, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(three_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(clear_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(four_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(five_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(six_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(seven_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(eight_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(nine_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(zero_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ok_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 13, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(four_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(five_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(six_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(seven_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(eight_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(nine_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(zero_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(ok_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ans_lbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(answer_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3))
-                                    .addComponent(order_lbl))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(numCount_lbl)
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(answer_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel9)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(correctNum_lbl)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Incorr_lbl)
+                        .addGap(38, 38, 38))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(order_lbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(start_btn)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(answer_lbl))
-                    .addComponent(order_lbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(order_lbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ans_lbl)
+                    .addComponent(answer_lbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
+                    .addComponent(numCount_lbl)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7)
+                    .addComponent(correctNum_lbl)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addGap(17, 17, 17)
+                    .addComponent(Incorr_lbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -271,12 +286,12 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(nine_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(zero_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7))
+                        .addGap(1, 1, 1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(clear_btn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ok_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(ok_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -286,6 +301,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void start_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_btnActionPerformed
         if (start_btn.isSelected()) {
             start_flag = true;
+            start_btn.setText("Стоп");
             say = new Thread() {
                 @Override
                 public void run() {
@@ -294,7 +310,7 @@ public class MainFrame extends javax.swing.JFrame {
                         test.setEnd_flag(false);
                         input.clear();
                         test.init();
-                        jLabel3.setText(Integer.toString(test.getNumbers().size()));
+                        numCount_lbl.setText(Integer.toString(test.getNumbers().size()));
                         if (test.isOrder()) {
                             order_lbl.setText("В прямом порядке");
                             order_lbl.setForeground(Color.black);
@@ -319,10 +335,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         } else {
             say.stop();
+            start_btn.setText("Старт");
         }
     }//GEN-LAST:event_start_btnActionPerformed
 
     private void keys_dis() {
+        ok_btn.setEnabled(false);
+        clear_btn.setEnabled(false);
         four_btn.setEnabled(false);
         one_btn.setEnabled(false);
         seven_btn.setEnabled(false);
@@ -336,6 +355,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     private void keys_en() {
+        ok_btn.setEnabled(false);
+        clear_btn.setEnabled(false);
         four_btn.setEnabled(true);
         one_btn.setEnabled(true);
         seven_btn.setEnabled(true);
@@ -443,19 +464,19 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Incorr_lbl;
+    private javax.swing.JLabel ans_lbl;
     private javax.swing.JLabel answer_lbl;
     private javax.swing.JButton clear_btn;
+    private javax.swing.JLabel correctNum_lbl;
     private javax.swing.JButton eight_btn;
     private javax.swing.JButton five_btn;
     private javax.swing.JButton four_btn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton nine_btn;
+    private javax.swing.JLabel numCount_lbl;
     private javax.swing.JButton ok_btn;
     private javax.swing.JButton one_btn;
     private javax.swing.JLabel order_lbl;
@@ -488,15 +509,15 @@ public class MainFrame extends javax.swing.JFrame {
                 answer_lbl.setText("ПРАВИЛЬНЫЙ");
                 answer_lbl.setForeground(new Color(63, 170, 63));
                 test.setCorrect(test.getCorrect() + 1);
-                jLabel7.setText(Integer.toString(test.getCorrect()));
-                jLabel9.setText(Integer.toString(test.getIncorrect()));
+                correctNum_lbl.setText(Integer.toString(test.getCorrect()));
+                Incorr_lbl.setText(Integer.toString(test.getIncorrect()));
                 say.resume();
             } else {
                 answer_lbl.setText("НЕПРАВИЛЬНЫЙ");
                 answer_lbl.setForeground(Color.RED);
                 test.setIncorrect(test.getIncorrect() + 1);
-                jLabel7.setText(Integer.toString(test.getCorrect()));
-                jLabel9.setText(Integer.toString(test.getIncorrect()));
+                correctNum_lbl.setText(Integer.toString(test.getCorrect()));
+                Incorr_lbl.setText(Integer.toString(test.getIncorrect()));
                 System.out.println("Правильный: " + test.getNumbers().toString());
                 System.out.println("Введено: " + input.toString());
                 say.resume();
@@ -510,8 +531,8 @@ public class MainFrame extends javax.swing.JFrame {
                 answer_lbl.setText("НЕПРАВИЛЬНЫЙ");
                 answer_lbl.setForeground(Color.RED);
                 test.setIncorrect(test.getIncorrect() + 1);
-                jLabel7.setText(Integer.toString(test.getCorrect()));
-                jLabel9.setText(Integer.toString(test.getIncorrect()));
+                correctNum_lbl.setText(Integer.toString(test.getCorrect()));
+                Incorr_lbl.setText(Integer.toString(test.getIncorrect()));
                 System.out.println("Обратный порядок");
                 System.out.println("Правильный: " + reverse_numbers.toString());
                 System.out.println("Введено: " + input.toString());
@@ -520,8 +541,8 @@ public class MainFrame extends javax.swing.JFrame {
                 answer_lbl.setText("ПРАВИЛЬНЫЙ");
                 answer_lbl.setForeground(new Color(63, 170, 63));
                 test.setCorrect(test.getCorrect() + 1);
-                jLabel7.setText(Integer.toString(test.getCorrect()));
-                jLabel9.setText(Integer.toString(test.getIncorrect()));
+                correctNum_lbl.setText(Integer.toString(test.getCorrect()));
+                Incorr_lbl.setText(Integer.toString(test.getIncorrect()));
                 say.resume();
             }
         }
